@@ -17,6 +17,7 @@ def lists() -> None:
 
     second_name = names[1]
 
+    print(list(range(1, 4)))
     print(numbers)
     print(strings)
     print("The second name on the names list is %s" % second_name)
