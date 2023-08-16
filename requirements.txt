@@ -1,0 +1,7 @@
+nox
+pytest
+sphinx
+black
+ruff
+mypy
+coverage

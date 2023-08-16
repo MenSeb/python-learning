@@ -1,0 +1,26 @@
+# A list of rule codes or prefixes to enable. Prefixes can specify exact rules (like F841), entire categories (like F), or anything in between.
+select = ["ALL"]
+
+# Allow autofix for all enabled rules (when `--fix`) is provided.
+# A list of rule codes or prefixes to consider autofixable.
+fixable = ["ALL"]
+
+# A list of rule codes or prefixes to consider non-autofix-able.
+unfixable = []
+
+# A list of rule codes or prefixes to enable, in addition to those specified by select.
+extend-select = []
+
+# Exclude a variety of commonly ignored directories.
+extend-exclude = []
+
+# A list of rule codes or prefixes to ignore, in addition to those specified by ignore.
+extend-ignore = ["D203", "D213"]
+
+# A list of rule codes or prefixes to consider autofixable, in addition to those specified by fixable.
+extend-fixable = []
+
+# A list of mappings from file pattern to rule codes or prefixes to exclude, in addition to any rules excluded by per-file-ignores.
+[extend-per-file-ignores]
+"tests/**/*.py" = ["S101", "PLR2004"]
+
