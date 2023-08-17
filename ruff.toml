@@ -23,4 +23,4 @@ extend-fixable = []
 # A list of mappings from file pattern to rule codes or prefixes to exclude, in addition to any rules excluded by per-file-ignores.
 [extend-per-file-ignores]
 "tests/**/*.py" = ["S101", "PLR2004"]
-
+"src/exercices/**/*.py" = ["T201", "PLR2004"]
