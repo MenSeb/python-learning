@@ -40,4 +40,8 @@ def string_operations() -> None:
     print("Split the words of the string: %s" % s.split(" "))
 
 
-string_operations()
+def main() -> None:
+    string_operations()
+
+
+main()

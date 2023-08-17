@@ -28,4 +28,8 @@ def conditions() -> None:
         print("6")
 
 
-conditions()
+def main() -> None:
+    conditions()
+
+
+main()

@@ -9,4 +9,8 @@ def string_formatting() -> None:
     print(format_string % data)
 
 
-string_formatting()
+def main() -> None:
+    string_formatting()
+
+
+main()

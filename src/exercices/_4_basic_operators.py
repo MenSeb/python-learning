@@ -2,9 +2,6 @@
 
 from __future__ import annotations
 
-x = object()
-y = object()
-
 
 def create_list(obj: object) -> list[object]:
     """Create a list with 10 instances of obj."""
@@ -13,6 +10,8 @@ def create_list(obj: object) -> list[object]:
 
 def basic_operators() -> None:
     """Print basic operators."""
+    x = object()
+    y = object()
     x_list = create_list(x)
     y_list = create_list(y)
     big_list = x_list + y_list
@@ -27,4 +26,8 @@ def basic_operators() -> None:
         print("Great!")
 
 
-basic_operators()
+def main() -> None:
+    basic_operators()
+
+
+main()

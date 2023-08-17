@@ -1,13 +1,12 @@
 """Tutorial 2 - Variables & Types."""
 
 
-mystring: str = "hello"
-myfloat: float = 5.0
-myint: int = 4
-
-
 def variables_types() -> None:
-    """Print variables types."""
+    """Print variables and their types."""
+    mystring: str = "hello"
+    myfloat: float = 5.0
+    myint: int = 4
+
     if isinstance(mystring, str) and mystring == "hello":
         print("String: %s" % mystring)
 
@@ -18,4 +17,8 @@ def variables_types() -> None:
         print("Integer: %d" % myint)
 
 
-variables_types()
+def main() -> None:
+    variables_types()
+
+
+main()

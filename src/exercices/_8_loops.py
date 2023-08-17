@@ -114,4 +114,8 @@ def loops() -> None:
             print(number)
 
 
-loops()
+def main() -> None:
+    loops()
+
+
+main()
