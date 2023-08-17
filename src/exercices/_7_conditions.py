@@ -1,4 +1,4 @@
-"""conditions."""
+"""Tutorial 7 - Conditions."""
 
 
 def conditions() -> None:

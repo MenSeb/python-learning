@@ -1,4 +1,4 @@
-"""closures."""
+"""Tutorial 25 - Closures."""
 
 from typing import Callable
 

@@ -1,4 +1,4 @@
-"""lambda functions, also known as anonymous functions."""
+"""Tutorial 17 - Lambda Functions."""
 
 
 def main() -> None:

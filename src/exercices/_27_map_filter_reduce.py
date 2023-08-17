@@ -1,4 +1,4 @@
-"""map, filter & reduce."""
+"""Tutorial 27 - Map, Filter & Reduce."""
 
 
 from functools import reduce

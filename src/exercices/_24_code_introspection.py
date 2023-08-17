@@ -1,4 +1,4 @@
-"""code introspection."""
+"""Tutorial 24 - Code Introspection."""
 
 
 # Define the Vehicle class.

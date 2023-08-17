@@ -1,4 +1,4 @@
-"""classes and objects."""
+"""Tutorial 10 - Classes & Objects."""
 
 
 # define the Vehicle class

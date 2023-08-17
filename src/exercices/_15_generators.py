@@ -1,4 +1,4 @@
-"""generators."""
+"""Tutorial 15 - Generators."""
 
 import random
 import secrets

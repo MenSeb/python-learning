@@ -1,4 +1,4 @@
-"""String formatting."""
+"""Tutorial 5 - String Formatting."""
 
 
 def string_formatting() -> None:

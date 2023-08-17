@@ -1,4 +1,4 @@
-"""dictionaries."""
+"""Tutorial 11 - Dictionaries."""
 
 
 def main() -> None:

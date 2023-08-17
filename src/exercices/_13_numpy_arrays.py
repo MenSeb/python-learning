@@ -1,4 +1,4 @@
-"""numpy arrays."""
+"""Tutorial 13 - Numpy Arrays."""
 
 import numpy as np
 

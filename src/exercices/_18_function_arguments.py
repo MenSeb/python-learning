@@ -1,4 +1,4 @@
-"""Multiple function arguments."""
+"""Tutorial 18 - Function Arguments."""
 
 
 from __future__ import annotations

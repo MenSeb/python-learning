@@ -1,9 +1,9 @@
-"""Hello World."""
+"""Tutorial 1 - Hello World."""
 
 
-def hello_world() -> None:
-    """Print hello world."""
+def main() -> None:
+    """Print Hello World!."""
     print("Hello World!")
 
 
-hello_world()
+main()

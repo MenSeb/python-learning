@@ -1,4 +1,4 @@
-"""partial functions."""
+"""Tutorial 23 - Partial Functions."""
 
 from functools import partial
 

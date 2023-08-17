@@ -1,4 +1,4 @@
-"""decorators."""
+"""Tutorial 26 - Decorators."""
 
 from typing import Callable, TypeVar
 

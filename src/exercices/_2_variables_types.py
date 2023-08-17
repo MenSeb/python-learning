@@ -1,4 +1,4 @@
-"""Variables and Types."""
+"""Tutorial 2 - Variables & Types."""
 
 
 mystring: str = "hello"

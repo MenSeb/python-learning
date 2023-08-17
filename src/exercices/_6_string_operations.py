@@ -1,4 +1,4 @@
-"""Basic string operations."""
+"""Tutorial 6 - String Operations."""
 
 
 def string_operations() -> None:

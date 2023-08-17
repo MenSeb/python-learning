@@ -1,4 +1,4 @@
-"""loops."""
+"""Tutorial 8 - Loops."""
 
 
 def loops() -> None:
