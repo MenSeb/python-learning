@@ -1,4 +1,7 @@
-"""Exercise 2: Print the sum of the current number and the previous number."""
+"""Exercise 2.
+
+Print the sum of the current number and the previous number.
+"""
 
 
 def main() -> None:

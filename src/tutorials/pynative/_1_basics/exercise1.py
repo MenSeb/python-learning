@@ -1,4 +1,7 @@
-"""Exercise 1: Calculate the multiplication and sum of two numbers."""
+"""Exercise 1.
+
+Calculate the multiplication and sum of two numbers.
+"""
 
 
 def multiplication(x: int, y: int) -> int:
