@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "python-learning"
+version = "0.1.0"
+description = "Project to learn Python."
+authors = ["MenSeb <sebastien.menard.github@gmail.com>"]
+license = "ISC"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
