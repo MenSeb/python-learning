@@ -16,6 +16,11 @@ packages = [{ include = "mysql", from = "src" }]
 include = [{ path = "tests", format = "sdist" }]
 
 
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
 [tool.poetry.dependencies]
 python = "^3.11"
 
@@ -43,6 +48,8 @@ numpy = "^1.25.2"
 [tool.poetry.group.type.dependencies]
 mypy = "^1.5.1"
 
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.mysql.dependencies]
+mysql-connector-python = "^8.1.0"
+
+
