@@ -2,8 +2,9 @@
 
 from __future__ import annotations
 
-from logging import error, info
 from typing import TYPE_CHECKING
+
+from logger import error_mysql, sucess_mysql
 
 from mysql.connector import Error
 
@@ -13,17 +14,17 @@ if TYPE_CHECKING:
 
 def insert_record(
     table: str,
-    attrs: list[str],
-    vals: list[str],
+    columns: list[str],
+    values: list[str],
     cursor: MySQLCursor,
 ) -> None:
     """Insert a record in a MySQL table."""
     try:
-        cursor.execute(f"INSERT INTO {table} {attrs} VALUES {vals}")
-        info(f"Data in table {table} inserted successfully.")
+        cursor.execute(f"INSERT INTO {table} {columns} VALUES {values}")
     except Error as e:
-        error(f"Failed to insert data in table {table}.")
-        error(e)
+        error_mysql(e, f"Failed to insert data in table {table}.")
+    else:
+        sucess_mysql(f"Data in table {table} inserted successfully.")
 
 
 def insert_records(
@@ -36,10 +37,10 @@ def insert_records(
     """Insert multiple records in a MySQL table."""
     try:
         cursor.executemany(f"INSERT INTO {table} {attrs} VALUES {vals}", records)
-        info(f"Data in table {table} inserted successfully.")
     except Error as e:
-        error(f"Failed to insert data in table {table}.")
-        error(e)
+        error_mysql(e, f"Failed to insert data in table {table}.")
+    else:
+        sucess_mysql(f"Data in table {table} inserted successfully.")
 
 
 def select_record(
@@ -53,10 +54,10 @@ def select_record(
         if condition:
             query += f" WHERE {condition}"
         cursor.execute(query)
-        info(f"Data in table {table} selected successfully.")
     except Error as e:
-        error(f"Failed to select data in table {table}.")
-        error(e)
+        error_mysql(e, f"Failed to select data in table {table}.")
+    else:
+        sucess_mysql(f"Data in table {table} selected successfully.")
 
 
 def update_record(
@@ -68,17 +69,17 @@ def update_record(
     """Update a record in a MySQL table."""
     try:
         cursor.execute(f"UPDATE {table} SET {assignment} WHERE {condition}")
-        info(f"Data in table {table} updated successfully.")
     except Error as e:
-        error(f"Failed to update data in table {table}.")
-        error(e)
+        error_mysql(e, f"Failed to update data in table {table}.")
+    else:
+        sucess_mysql(f"Data in table {table} updated successfully.")
 
 
 def delete_record(table: str, condition: str, cursor: MySQLCursor) -> None:
     """Delete a record in a MySQL table."""
     try:
         cursor.execute(f"DELETE FROM {table} WHERE {condition}")
-        info(f"Data in table {table} deleted successfully.")
     except Error as e:
-        error(f"Failed to delete data in table {table}.")
-        error(e)
+        error_mysql(e, f"Failed to delete data in table {table}.")
+    else:
+        sucess_mysql(f"Data in table {table} deleted successfully.")
