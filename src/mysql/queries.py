@@ -1,6 +1,6 @@
 """Modules to handle MySQL queries."""
 
-EMPLOYE_TABLE = "Employe"
+EMPLOYE_TABLE = "Employee"
 EMPLOYE_QUERY = """(
   id INT AUTO_INCREMENT PRIMARY KEY,
   first_name VARCHAR(48) NOT NULL,
