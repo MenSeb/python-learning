@@ -12,7 +12,7 @@ unfixable = []
 extend-select = []
 
 # Exclude a variety of commonly ignored directories.
-extend-exclude = []
+extend-exclude = ['out', 'Lib']
 
 # A list of rule codes or prefixes to ignore, in addition to those specified by ignore.
 extend-ignore = ["D203", "D213"]
