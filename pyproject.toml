@@ -20,6 +20,11 @@ include = [{ path = "tests", format = "sdist" }]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
+[tool.pytest.ini_options]
+pythonpath = "src"
+testpaths = ["tests"]
+addopts = ["--import-mode=importlib"]
+
 
 [tool.poetry.dependencies]
 python = "^3.11"
