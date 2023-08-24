@@ -2,61 +2,63 @@
 
 from __future__ import annotations
 
-from logging import error, info
+import sys
+from typing import TYPE_CHECKING
 
-from mysql.connector import Error, MySQLConnection, connect, cursor, errorcode
+from logger import error_mysql, sucess_mysql
+
+from mysql.connector import Error, MySQLConnection, connect, errorcode
+
+if TYPE_CHECKING:
+    from mysql.connector.cursor import MySQLCursor
 
 
-def connect_database(
-    database: str,
-    *,
-    autocommit: bool,
-    **config: str,
-) -> MySQLConnection | Error:
-    """Connect a MySQL database."""
+def connect_database(**options: str) -> MySQLConnection:
+    """Connect to a MySQL database."""
     try:
-        with connect(**config) as cnx:
-            info("MySQL connected successfully.")
-            cnx.autocommit = autocommit
-            if database:
-                create_database(database, cnx.cursor())
-                cnx.database = database
-                info(f"Database {database} connected successfully.")
+        cnx = connect(**options)
+        database = options.get("database")
+        database = "" if not database else f" {database}"
+    except (AttributeError, Error) as e:
+        if hasattr(e, "errno") and e.errno == errorcode.ER_BAD_DB_ERROR:
+            database = options.pop("database")
+            cnx = connect(**options)
+            create_database(database, cnx.cursor())
+            cnx.database = database
+            sucess_mysql(f"Database {database} connected successfully")
             return cnx
-    except Error as e:
-        error("Failed to connect MySQL.")
-        error(e)
-        return e
+        error_mysql(e, "Failed to connect to mysql database.")
+        sys.exit(1)
+    else:
+        sucess_mysql(f"Database{database} connected successfully")
+        return cnx
 
 
-def delete_database(name: str, cursor: cursor.MySQLCursor) -> None:
+def delete_database(database: str, cursor: MySQLCursor) -> None:
     """Delete a MySQL database."""
     try:
-        cursor.execute(f"DROP DATABASE {name}")
-        info(f"Database {name} deleted successfully.")
+        cursor.execute(f"DROP DATABASE {database}")
     except Error as e:
-        error(f"Failed to delete database {name}")
-        error(e)
+        error_mysql(e, f"Failed to delete database {database}")
+    else:
+        sucess_mysql(f"Database {database} deleted successfully.")
 
 
-def create_database(name: str, cursor: cursor.MySQLCursor) -> None:
+def create_database(database: str, cursor: MySQLCursor) -> None:
     """Create a MySQL database."""
     try:
-        cursor.execute(f"CREATE DATABASE {name}")
-        info(f"Database {name} created successfully.")
+        cursor.execute(f"CREATE DATABASE {database}")
     except Error as e:
-        if e.errno == errorcode.ER_DB_CREATE_EXISTS:
-            info(f"Database {name} already exists.")
-        else:
-            error(f"Failed to create database {name}.")
-            error(e)
+        error_mysql(e, f"Failed to create database {database}.")
+    else:
+        sucess_mysql(f"Database {database} created successfully.")
 
 
-def use_database(name: str, cursor: cursor.MySQLCursor) -> None:
+def use_database(database: str, cursor: MySQLCursor) -> None:
     """Use a MySQL database."""
     try:
-        cursor.execute(f"USE {name}")
-        info(f"Database {name} used successfully.")
+        cursor.execute(f"USE {database}")
     except Error as e:
-        error(f"Failed to use database {name}.")
-        error(e)
+        error_mysql(e, f"Failed to use database {database}.")
+    else:
+        sucess_mysql(f"Database {database} used successfully.")

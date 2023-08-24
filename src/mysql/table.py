@@ -3,46 +3,51 @@
 
 from __future__ import annotations
 
-from logging import error, info
+from typing import TYPE_CHECKING
 
-from mysql.connector import Error, cursor
+from logger import error_mysql, sucess_mysql
+
+from mysql.connector import Error
+
+if TYPE_CHECKING:
+    from mysql.connector.cursor import MySQLCursor
 
 
-def create_table(name: str, query: str, cursor: cursor.MySQLCursor) -> None:
+def create_table(table: str, schema: str, cursor: MySQLCursor) -> None:
     """Create a MySQL table."""
     try:
-        cursor.execute(f"CREATE TABLE {name}{query}")
-        info(f"Table {name} created successfully.")
+        cursor.execute(f"CREATE TABLE {table}{schema}")
     except Error as e:
-        error(f"Failed to create table {name}.")
-        error(e)
+        error_mysql(e, f"Failed to create table {table}.")
+    else:
+        sucess_mysql(f"Table {table} created successfully.")
 
 
-def delete_table(name: str, cursor: cursor.MySQLCursor) -> None:
+def delete_table(table: str, cursor: MySQLCursor) -> None:
     """Delete a MySQL table."""
     try:
-        cursor.execute(f"DROP TABLE {name}")
-        info(f"Table {name} deleted successfully.")
+        cursor.execute(f"DROP TABLE {table}")
     except Error as e:
-        error(f"Failed to delete table {name}.")
-        error(e)
+        error_mysql(e, f"Failed to delete table {table}.")
+    else:
+        sucess_mysql(f"Table {table} deleted successfully.")
 
 
-def describe_table(name: str, cursor: cursor.MySQLCursor) -> None:
+def describe_table(table: str, cursor: MySQLCursor) -> None:
     """Describe a MySQL table."""
     try:
-        cursor.execute(f"DESCRIBE  {name}")
-        info(f"Table {name} described successfully.")
+        cursor.execute(f"DESCRIBE {table}")
     except Error as e:
-        error(f"Failed to describe table {name}.")
-        error(e)
+        error_mysql(e, f"Failed to describe table {table}.")
+    else:
+        sucess_mysql(f"Table {table} described successfully.")
 
 
-def alter_table(name: str, column: str, attr: str, cursor: cursor.MySQLCursor) -> None:
+def alter_table(table: str, query: str, cursor: MySQLCursor) -> None:
     """Alter a MySQL table."""
     try:
-        cursor.execute(f"ALTER TABLE {name} MODIFY COLUMN {column} {attr}")
-        info(f"Table {name} column {column} attribute {attr} altered successfully.")
+        cursor.execute(f"ALTER TABLE {table} {query}")
     except Error as e:
-        error(f"Failed to alter table {name} column {column} attribute {attr}.")
-        error(e)
+        error_mysql(e, f"Failed to alter table {table}.")
+    else:
+        sucess_mysql(f"Table {table} altered successfully.")

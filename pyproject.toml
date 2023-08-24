@@ -16,14 +16,36 @@ packages = [{ include = "mysql", from = "src" }]
 include = [{ path = "tests", format = "sdist" }]
 
 
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+pythonpath = "src"
+testpaths = ["tests"]
+addopts = ["--import-mode=importlib"]
+
+[tool.coverage.run]
+branch = true
+source = ["src", "tests"]
+omit = ["**/__init__.py"]
+
+[tool.coverage.report]
+# fail_under = 100
+
+[tool.coverage.html]
+directory = 'coverage'
+
+
 [tool.poetry.dependencies]
 python = "^3.11"
 
 
 [tool.poetry.group.test.dependencies]
 pytest = "^7.4.0"
-coverage = "^7.3.0"
 nox = "^2023.4.22"
+pytest-cov = "^4.1.0"
+coveralls = "^3.3.1"
 
 
 [tool.poetry.group.docs.dependencies]
@@ -43,6 +65,8 @@ numpy = "^1.25.2"
 [tool.poetry.group.type.dependencies]
 mypy = "^1.5.1"
 
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.mysql.dependencies]
+mysql-connector-python = "^8.1.0"
+
+
