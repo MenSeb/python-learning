@@ -1,17 +1,21 @@
-"""Modules to handle a MySQL record."""
+"""Modules to handMySQLCursorcursorle a MySQL record."""
 
 from __future__ import annotations
 
 from logging import error, info
+from typing import TYPE_CHECKING
 
-from mysql.connector import Error, cursor
+from mysql.connector import Error
+
+if TYPE_CHECKING:
+    from mysql.connector.cursor import MySQLCursor
 
 
 def insert_record(
     table: str,
     attrs: list[str],
     vals: list[str],
-    cursor: cursor.MySQLCursor,
+    cursor: MySQLCursor,
 ) -> None:
     """Insert a record in a MySQL table."""
     try:
@@ -27,7 +31,7 @@ def insert_records(
     attrs: str,
     vals: str,
     records: list[tuple],
-    cursor: cursor.MySQLCursor,
+    cursor: MySQLCursor,
 ) -> None:
     """Insert multiple records in a MySQL table."""
     try:
@@ -41,7 +45,7 @@ def insert_records(
 def select_record(
     table: str,
     condition: str | None,
-    cursor: cursor.MySQLCursor,
+    cursor: MySQLCursor,
 ) -> None:
     """Read a record in a MySQL table."""
     try:
@@ -59,7 +63,7 @@ def update_record(
     table: str,
     assignment: str,
     condition: str,
-    cursor: cursor.MySQLCursor,
+    cursor: MySQLCursor,
 ) -> None:
     """Update a record in a MySQL table."""
     try:
@@ -70,7 +74,7 @@ def update_record(
         error(e)
 
 
-def delete_record(table: str, condition: str, cursor: cursor.MySQLCursor) -> None:
+def delete_record(table: str, condition: str, cursor: MySQLCursor) -> None:
     """Delete a record in a MySQL table."""
     try:
         cursor.execute(f"DELETE FROM {table} WHERE {condition}")

@@ -6,9 +6,9 @@ from logging import error
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    import mysql.connector as mysqlc
+    from mysql.connector import Error
 
 
-def error_mysql(e: mysqlc.Error | AttributeError, msg: str) -> None:
+def error_mysql(e: Error | AttributeError, msg: str) -> None:
     """Raise error with custom message."""
     error(f"{msg}\nTYPE: {type(e)}\nERROR: {e}")
