@@ -1,3 +1,5 @@
+"""Models for PyMySQL."""
+
 from django.db import models
 
 
@@ -11,6 +13,7 @@ class Employee(models.Model):
     phone = models.CharField(max_length=20)
 
     def __str__(self: "Employee") -> str:
+        """Employee string representation."""
         return f"{self.first_name} {self.last_name}"
 
 
@@ -24,6 +27,7 @@ class Task(models.Model):
     date_end = models.DateTimeField()
 
     def __str__(self: "Task") -> str:
+        """Task string representation."""
         return f"{self.title}"
 
     def is_assign(self: "Task") -> bool:

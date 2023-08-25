@@ -1,5 +1,4 @@
-"""
-WSGI config for pydjango project.
+"""WSGI config for pydjango project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

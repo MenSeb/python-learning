@@ -1,5 +1,4 @@
-"""
-ASGI config for pydjango project.
+"""ASGI config for pydjango project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
