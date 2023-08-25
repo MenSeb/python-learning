@@ -47,6 +47,7 @@ directory = 'coverage'
 
 [tool.poetry.dependencies]
 python = "^3.11"
+django = "^4.2.4"
 
 
 [tool.poetry.group.dev.dependencies]
