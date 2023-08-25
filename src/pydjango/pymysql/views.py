@@ -9,6 +9,6 @@ def index(request):
     return HttpResponse("Hello Django!")
 
 
-def employee(request, id):
-    emp = Employee.objects().get(id=id)
-    return HttpResponse(f"Employee {id}: {emp}")
+def employee(request, employee_id):
+    emp = Employee.objects.get(id=employee_id)
+    return HttpResponse(f"Employee {employee_id}: {emp}")
