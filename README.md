@@ -13,6 +13,8 @@
 
 <a href='https://coveralls.io/github/MenSeb/python-learning?branch=master'><img src='https://coveralls.io/repos/github/MenSeb/python-learning/badge.svg?branch=master' alt='Coverage Status' /></a>
 
+<a href="https://www.codefactor.io/repository/github/menseb/python-learning"><img src="https://www.codefactor.io/repository/github/menseb/python-learning/badge" alt="CodeFactor" /></a>
+
 <a href="https://github.com/astral-sh/ruff">
   <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json" alt="Ruff">
 </a>

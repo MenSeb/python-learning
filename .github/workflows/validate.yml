@@ -1,4 +1,4 @@
-name: Test
+name: Validate
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   pull_request:
 
 jobs:
-  test:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -16,15 +16,13 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: "3.11"
-      - name: Poetry
-        run: pip install poetry
-      - name: Install dependencies
-        run: poetry install
-      - name: Ruff
+      - name: Install
+        run: pip install poetry && poetry install
+      - name: Lint
         uses: chartboost/ruff-action@v1
-      - name: Test Coverage
+      - name: Test
         run: poetry run pytest --cov=. --cov-report=lcov:coverage/lcov.info --verbose
-      - name: Coveralls
+      - name: Coverage
         uses: coverallsapp/github-action@master
         with:
           debug: true
