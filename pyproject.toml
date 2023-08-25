@@ -20,6 +20,14 @@ include = [{ path = "tests", format = "sdist" }]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
+[tool.commitizen]
+name = "cz_conventional_commits"
+tag_format = "$version"
+version_scheme = "pep440"
+version_provider = "poetry"
+update_changelog_on_bump = true
+major_version_zero = true
+
 [tool.pytest.ini_options]
 pythonpath = "src"
 testpaths = ["tests"]
@@ -39,6 +47,10 @@ directory = 'coverage'
 
 [tool.poetry.dependencies]
 python = "^3.11"
+
+
+[tool.poetry.group.dev.dependencies]
+commitizen = "^3.6.0"
 
 
 [tool.poetry.group.test.dependencies]

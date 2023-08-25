@@ -21,6 +21,10 @@
 
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
+<a src="http://commitizen.github.io/cz-cli/">
+    <img alt="Commitizen" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg">
+</a>
+
 <a src="https://opensource.org/licenses/ISC">
     <img alt="License" src="https://img.shields.io/badge/License-ISC-forest.svg">
 </a>
