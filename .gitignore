@@ -46,6 +46,7 @@ coverage.xml
 *.cover
 .hypothesis/
 .pytest_cache/
+/coverage
 
 # Translations
 *.mo
@@ -113,3 +114,6 @@ venv.bak/
 
 # Ruff stuff
 .ruff_cache
+
+# Stubs
+/out
