@@ -69,6 +69,7 @@ sphinx = "^7.2.3"
 [tool.poetry.group.lint.dependencies]
 black = "^23.7.0"
 ruff = "^0.0.285"
+pylint-django = "^2.5.3"
 
 
 [tool.poetry.group.data.dependencies]
