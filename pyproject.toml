@@ -82,5 +82,6 @@ mypy = "^1.5.1"
 
 [tool.poetry.group.mysql.dependencies]
 mysql-connector-python = "^8.1.0"
+mysqlclient = "^2.2.0"
 
 
