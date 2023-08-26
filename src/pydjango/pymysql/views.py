@@ -10,13 +10,13 @@ from .models import Employee
 # Create your views here.
 def index(request: HttpRequest) -> HttpResponse:
     """Response index."""
-    return render(request, "index.html")
+    return render(request, "pymysql/index.html")
 
 
 def employees(request: HttpRequest) -> HttpResponse:
     """Response employees."""
-    emps = Employee.objects
-    template = loader.get_template("pymysql/index.html")
+    emps = Employee.objects.all()
+    template = loader.get_template("pymysql/employees.html")
     context = {"employees": emps}
     return HttpResponse(template.render(context, request))
 

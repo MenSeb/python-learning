@@ -1,5 +1,5 @@
 {% if employee %}
-<a href="/employee/{{ employee.id }}/">{{ employee.__str__() }}</a>
+<a href="/employee/{{ employee.id }}/">{{ employee }}</a>
 {% else %}
 <p>No employee available.</p>
 {% endif %}

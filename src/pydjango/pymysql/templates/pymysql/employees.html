@@ -1,7 +1,7 @@
 {% if employees %}
 <ul>
   {% for employee in employees %}
-  <li><a href="/employee/{{ employee.id }}/">{{ employee.__str__() }}</a></li>
+  <li><a href="/employee/{{ employee.id }}/">{{ employee }}</a></li>
   {% endfor %}
 </ul>
 {% else %}
