@@ -1,7 +1,7 @@
 """Views for PyMySQL."""
 
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import get_list_or_404, get_object_or_404, render
 
 from .models import Employee
 
@@ -14,11 +14,11 @@ def index(request: HttpRequest) -> HttpResponse:
 
 def employees(request: HttpRequest) -> HttpResponse:
     """Response employees."""
-    context = {"employees": Employee.objects.all()}
+    context = {"employees": get_list_or_404(Employee)}
     return render(request, "pymysql/employees.html", context)
 
 
 def employee(request: HttpRequest, employee_id: int) -> HttpResponse:
     """Response employee."""
-    context = {"employee": Employee.objects.get(id=employee_id)}
+    context = {"employee": get_object_or_404(Employee, id=employee_id)}
     return render(request, "pymysql/employee.html", context)
