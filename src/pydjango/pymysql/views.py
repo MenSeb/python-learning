@@ -2,7 +2,6 @@
 
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
-from django.template import loader
 
 from .models import Employee
 
@@ -15,15 +14,11 @@ def index(request: HttpRequest) -> HttpResponse:
 
 def employees(request: HttpRequest) -> HttpResponse:
     """Response employees."""
-    emps = Employee.objects.all()
-    template = loader.get_template("pymysql/employees.html")
-    context = {"employees": emps}
-    return HttpResponse(template.render(context, request))
+    context = {"employees": Employee.objects.all()}
+    return render(request, "pymysql/employees.html", context)
 
 
 def employee(request: HttpRequest, employee_id: int) -> HttpResponse:
     """Response employee."""
-    emp = Employee.objects.get(id=employee_id)
-    template = loader.get_template("pymysql/employee.html")
-    context = {"employee": emp}
-    return HttpResponse(template.render(context, request))
+    context = {"employee": Employee.objects.get(id=employee_id)}
+    return render(request, "pymysql/employee.html", context)
