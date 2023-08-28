@@ -10,6 +10,9 @@ if TYPE_CHECKING:
     from django.http import HttpRequest
 
 
+# ruff: noqa: ARG001
+
+
 def website_settings(request: HttpRequest) -> dict[str, Any]:
     """Context for website."""
     nav_main = Navigation(
