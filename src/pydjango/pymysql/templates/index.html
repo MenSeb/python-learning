@@ -4,20 +4,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="Python with MySQL and Django" />
-    <meta name="keywords" content="Python, MySQL, Django" />
+    <meta name="description" content="{{ site_description }}" />
+    <meta name="keywords" content="{{ site_keywords }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PyMySQL</title>
+    <title>{{ site_title }}</title>
   </head>
   <body>
     <header>
       <img alt="Python logo" src="{% static 'assets/python.svg' %}" />
-      <h1>PyDjango</h1>
+      <h1>{{ site_brand }}</h1>
       {% include 'nav.html' with nav=nav_main %}
     </header>
     <main>
       <header>
-        <h1>PyMySQL</h1>
+        <h2>PyMySQL</h2>
         <p>MySQL database with Python and Django!</p>
       </header>
       <section>
