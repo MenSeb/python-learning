@@ -4,6 +4,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Python with MySQL and Django" />
+    <meta name="keywords" content="Python, MySQL, Django" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PyMySQL</title>
   </head>
@@ -11,23 +13,21 @@
     <header>
       <img alt="Python logo" src="{% static 'assets/python.svg' %}" />
       <h1>PyDjango</h1>
-      <nav>
-        <ul>
-          {% for link in navigation_main %}
-          <li>
-            <a href="{{ link.url }}">{{ link.text }}</a>
-          </li>
-          {% endfor %}
-        </ul>
-      </nav>
+      {% include 'nav.html' with nav=nav_main %}
     </header>
     <main>
       <header>
         <h1>PyMySQL</h1>
         <p>MySQL database with Python and Django!</p>
       </header>
-      <section>{% block content %} {% endblock content %}</section>
+      <section>
+        {% block content %}
+        {% endblock content %}
+      </section>
     </main>
-    <footer>Footer</footer>
+    <footer>
+      {% include 'nav.html' with nav=nav_socials %}
+      {% include 'nav.html' with nav=nav_main %}
+    </footer>
   </body>
 </html>
