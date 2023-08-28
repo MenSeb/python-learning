@@ -1,0 +1,1 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="2.0" viewBox="0 0 500 500"><defs><path id="a" d="M250 155H100s-45 0-45 95 45 95 45 95h45v-45c0-30 25-55 55-55h100c25 0 45-20 45-45V100s0-45-95-45-95 45-95 45v45h95zm-65-55a15 15 0 0 1 30 0 15 15 0 0 1-30 0z"/></defs><use fill="#37b" href="#a"/><use fill="#fb3" href="#a" transform="rotate(180 250 250)"/></svg>
