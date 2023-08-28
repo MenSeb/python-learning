@@ -1,0 +1,15 @@
+@import url("./base.css");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style: none;
+}
