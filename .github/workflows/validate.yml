@@ -18,8 +18,10 @@ jobs:
           python-version: "3.11"
       - name: Install
         run: pip install poetry && poetry install
-      - name: Lint
+      - name: Lint Ruff
         uses: chartboost/ruff-action@v1
+      - name: Lint Django
+        run: poetry run djlint .
       - name: Test
         run: poetry run pytest --cov=. --cov-report=lcov:coverage/lcov.info --verbose
       - name: Coverage

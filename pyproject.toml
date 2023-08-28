@@ -70,6 +70,7 @@ sphinx = "^7.2.3"
 black = "^23.7.0"
 ruff = "^0.0.285"
 pylint-django = "^2.5.3"
+djlint = "^1.32.1"
 
 
 [tool.poetry.group.data.dependencies]
