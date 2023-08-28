@@ -9,7 +9,7 @@ from .models import Employee
 # Create your views here.
 def index(request: HttpRequest) -> HttpResponse:
     """Response index."""
-    return render(request, "index.html")
+    return render(request, "pymysql/index.html")
 
 
 def employees(request: HttpRequest) -> HttpResponse:

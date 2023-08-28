@@ -1,8 +1,14 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
 {% block content %}
-  {% if employee %}
-    <a href="{% url 'pymysql:employee' employee.id %}">{{ employee }}</a>
-  {% else %}
-    <p>No employee available.</p>
-  {% endif %}
+  <header>
+    <h2>Employee</h2>
+    <p>Current employee:</p>
+  </header>
+  <section>
+    {% if employee %}
+      <a href="{% url 'pymysql:employee' employee.id %}">{{ employee }}</a>
+    {% else %}
+      <p>No employee available.</p>
+    {% endif %}
+  </section>
 {% endblock content %}

@@ -16,14 +16,8 @@
       {% include 'nav.html' with nav=nav_main %}
     </header>
     <main>
-      <header>
-        <h2>PyMySQL</h2>
-        <p>MySQL database with Python and Django!</p>
-      </header>
-      <section>
-        {% block content %}
-        {% endblock content %}
-      </section>
+      {% block content %}
+      {% endblock content %}
     </main>
     <footer>
       {% include 'nav.html' with nav=nav_socials %}

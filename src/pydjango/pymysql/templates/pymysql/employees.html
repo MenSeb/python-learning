@@ -1,14 +1,20 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
 {% block content %}
-  {% if employees %}
-    <ul>
-      {% for employee in employees %}
-        <li>
-          <a href="{% url 'pymysql:employee' employee.id %}">{{ employee }}</a>
-        </li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>No employees are available.</p>
-  {% endif %}
+  <header>
+    <h2>Employees</h2>
+    <p>List of employees:</p>
+  </header>
+  <section>
+    {% if employees %}
+      <ul>
+        {% for employee in employees %}
+          <li>
+            <a href="{% url 'pymysql:employee' employee.id %}">{{ employee }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No employees are available.</p>
+    {% endif %}
+  </section>
 {% endblock content %}
