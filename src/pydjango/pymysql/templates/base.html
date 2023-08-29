@@ -1,0 +1,34 @@
+{% load static %}
+{% load compress %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% compress css %}
+      <link href="{% static 'pymysql/styles/index.scss' %}"
+            media="screen"
+            rel="stylesheet"
+            type="text/x-scss">
+    {% endcompress %}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="{{ site_description }}" />
+    <meta name="keywords" content="{{ site_keywords }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ site_title }}</title>
+  </head>
+  <body>
+    <header>
+      <img alt="Python logo" src="{% static 'pymysql/assets/python.svg' %}" />
+      <h1>{{ site_brand }}</h1>
+      {% include 'nav.html' with nav=nav_main %}
+    </header>
+    <main>
+      {% block content %}
+      {% endblock content %}
+    </main>
+    <footer>
+      {% include 'nav.html' with nav=nav_socials %}
+      {% include 'nav.html' with nav=nav_main %}
+    </footer>
+  </body>
+</html>

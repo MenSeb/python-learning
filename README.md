@@ -21,6 +21,8 @@
 
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
+[![Code style: djLint](https://img.shields.io/badge/html%20style-djLint-blue.svg)](https://github.com/Riverside-Healthcare/djlint)
+
 <a src="http://commitizen.github.io/cz-cli/">
     <img alt="Commitizen" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg">
 </a>

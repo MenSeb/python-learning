@@ -47,10 +47,14 @@ directory = 'coverage'
 
 [tool.poetry.dependencies]
 python = "^3.11"
+django = "^4.2.4"
 
 
 [tool.poetry.group.dev.dependencies]
 commitizen = "^3.6.0"
+python-dotenv = "^1.0.0"
+django-compressor = "^4.4"
+django-libsass = "^0.9"
 
 
 [tool.poetry.group.test.dependencies]
@@ -67,6 +71,8 @@ sphinx = "^7.2.3"
 [tool.poetry.group.lint.dependencies]
 black = "^23.7.0"
 ruff = "^0.0.285"
+pylint-django = "^2.5.3"
+djlint = "^1.32.1"
 
 
 [tool.poetry.group.data.dependencies]
@@ -80,5 +86,6 @@ mypy = "^1.5.1"
 
 [tool.poetry.group.mysql.dependencies]
 mysql-connector-python = "^8.1.0"
+mysqlclient = "^2.2.0"
 
 
